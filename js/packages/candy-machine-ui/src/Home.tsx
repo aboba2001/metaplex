@@ -31,7 +31,7 @@ const ConnectButton = styled(WalletDialogButton)`
   font-weight: bold;
 `;
 
-import banner from '../../public/banner.png';
+import banner from './banner.png';
 const MintContainer = styled.div`
   width: 280px;
   height: 50px;
