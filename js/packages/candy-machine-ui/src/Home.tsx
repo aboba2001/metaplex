@@ -168,70 +168,68 @@ const Home = (props: HomeProps) => {
     ]);
 
     return (
-        <Container style= {{ marginTop: 100 }
-}>
-    <Container maxWidth="xs" style = {{ position: 'relative' }}>
-        <Paper
-          style={ { padding: 24, backgroundColor: '#151A1F', borderRadius: 6 } }
-        >
-    {!wallet.connected ? (
-        <ConnectButton>Connect Wallet < /ConnectButton>
-          ) : (
-    <>
-    <Header candyMachine= { candyMachine } />
-    <MintContainer>
-    {
-        candyMachine?.state.isActive &&
-            candyMachine?.state.gatekeeper &&
-            wallet.publicKey &&
-            wallet.signTransaction ? (
-                <GatewayProvider
-                    wallet= {{
-    publicKey:
-    wallet.publicKey ||
-        new PublicKey(CANDY_MACHINE_PROGRAM),
-        //@ts-ignore
-        signTransaction: wallet.signTransaction,
-                    }}
-gatekeeperNetwork = {
-    candyMachine?.state?.gatekeeper?.gatekeeperNetwork
-}
-clusterUrl = { rpcUrl }
-options = {{ autoShowModal: false }}
-                  >
-    <MintButton
-                      candyMachine={ candyMachine }
-isMinting = { isUserMinting }
-onMint = { onMint }
-    />
-    </GatewayProvider>
-                ) : (
-    <MintButton
-                    candyMachine= { candyMachine }
-isMinting = { isUserMinting }
-onMint = { onMint }
-    />
-                )}
-</MintContainer>
-    < />
-          )}
-</Paper>
-    < /Container>
+        <Container style={{ marginTop: 100 }}>
+            <Container maxWidth="xs" style={{ position: 'relative' }}>
+                <Paper
+                    style={{ padding: 24, backgroundColor: '#151A1F', borderRadius: 6 }}
+                >
+                    {!wallet.connected ? (
+                        <ConnectButton>Connect Wallet</ConnectButton>
+                    ) : (
+                        <>
+                            <Header candyMachine={candyMachine} />
+                            <MintContainer>
+                                {candyMachine?.state.isActive &&
+                                    candyMachine?.state.gatekeeper &&
+                                    wallet.publicKey &&
+                                    wallet.signTransaction ? (
+                                    <GatewayProvider
+                                        wallet={{
+                                            publicKey:
+                                                wallet.publicKey ||
+                                                new PublicKey(CANDY_MACHINE_PROGRAM),
+                                            //@ts-ignore
+                                            signTransaction: wallet.signTransaction,
+                                        }}
+                                        gatekeeperNetwork={
+                                            candyMachine?.state?.gatekeeper?.gatekeeperNetwork
+                                        }
+                                        clusterUrl={rpcUrl}
+                                        options={{ autoShowModal: false }}
+                                    >
+                                        <MintButton
+                                            candyMachine={candyMachine}
+                                            isMinting={isUserMinting}
+                                            onMint={onMint}
+                                        />
+                                    </GatewayProvider>
+                                ) : (
+                                    <MintButton
+                                        candyMachine={candyMachine}
+                                        isMinting={isUserMinting}
+                                        onMint={onMint}
+                                    />
+                                )}
+                            </MintContainer>
+                        </>
+                    )}
+                </Paper>
+            </Container>
 
-    < Snackbar
-open = { alertState.open }
-autoHideDuration = { 6000}
-onClose = {() => setAlertState({ ...alertState, open: false })}
-      >
-    <Alert
-          onClose={ () => setAlertState({ ...alertState, open: false }) }
-severity = { alertState.severity }
-    >
-    { alertState.message }
-    < /Alert>
-    < /Snackbar>
-    < /Container>
-  );
+            <Snackbar
+                open={alertState.open}
+                autoHideDuration={6000}
+                onClose={() => setAlertState({ ...alertState, open: false })}
+            >
+                <Alert
+                    onClose={() => setAlertState({ ...alertState, open: false })}
+                    severity={alertState.severity}
+                >
+                    {alertState.message}
+                </Alert>
+            </Snackbar>
+        </Container>
+    );
 };
 
 export default Home;
