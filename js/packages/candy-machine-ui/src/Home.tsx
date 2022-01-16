@@ -19,6 +19,7 @@ import { AlertState } from './utils';
 import { Header } from './Header';
 import { MintButton } from './MintButton';
 import { GatewayProvider } from '@civic/solana-gateway-react';
+import banner from './banner.png';
 
 const ConnectButton = styled(WalletDialogButton)`
   width: 100%;
@@ -31,7 +32,6 @@ const ConnectButton = styled(WalletDialogButton)`
   font-weight: bold;
 `;
 
-import banner from './banner.png';
 const MintContainer = styled.div`
   width: 280px;
   height: 50px;
