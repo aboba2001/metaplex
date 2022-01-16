@@ -18,7 +18,7 @@ export const Header = ({ candyMachine }: HeaderProps) => {
           <Grid container direction="row" wrap="nowrap">
             <Grid container direction="column">
               <Typography variant="body2" color="textSecondary">
-                Remaining
+                Supply
               </Typography>
               <Typography
                 variant="h6"
@@ -27,7 +27,7 @@ export const Header = ({ candyMachine }: HeaderProps) => {
                   fontWeight: 'bold',
                 }}
               >
-                {`${candyMachine?.state.itemsRemaining}`}
+                333
               </Typography>
             </Grid>
             <Grid container direction="column">
