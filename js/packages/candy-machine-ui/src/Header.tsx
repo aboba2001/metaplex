@@ -27,7 +27,7 @@ export const Header = ({ candyMachine }: HeaderProps) => {
                   fontWeight: 'bold',
                 }}
               >
-                333
+                200
               </Typography>
             </Grid>
             <Grid container direction="column">
